@@ -10,7 +10,7 @@ public class Signup extends JFrame {
     long first4 = (ran.nextLong() % 9000L) + 1000L;
     String first = " " + Math.abs(first4);
 
-    JTextField textName, textFname;
+    JTextField textName, textFname, textNo;
     Signup()
     {
         super("APPLICATION FORM");
@@ -56,6 +56,16 @@ public class Signup extends JFrame {
         textFname.setFont(new Font("Raleway", Font.BOLD, 14));
         textFname.setBounds(300,240,400,30);
         add(textFname);
+
+        JLabel labelno = new JLabel("Phone No. :");
+        labelno.setFont(new Font("Raleway", Font.BOLD, 20));
+        labelno.setBounds(100,290,300,30);
+        add(labelno);
+
+        textNo = new JTextField();
+        textNo.setFont(new Font("Raleway", Font.BOLD,14));
+        textNo.setBounds(300,290,400,30);
+        add(textNo);
 
 
 
