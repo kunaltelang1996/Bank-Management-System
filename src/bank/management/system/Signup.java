@@ -4,11 +4,15 @@ import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class Signup extends JFrame {
+public class Signup extends JFrame implements ActionListener {
 
-    JRadioButton r1, r2, r3, r4;
+    JRadioButton r1, r2, r3, r4,r5;
+
+    JButton next;
 
     Random ran = new Random();
     long first4 = (ran.nextLong() % 9000L) + 1000L;
@@ -122,6 +126,18 @@ public class Signup extends JFrame {
         r4.setFont(new Font("Raleway", Font.BOLD, 14));
         add(r4);
 
+        r5 = new JRadioButton("Other");
+        r5.setBounds(600,440,100,30);
+        r5.setBackground(new Color(222,255,228));
+        r5.setFont(new Font("Raleway", Font.BOLD, 14));
+        add(r5);
+
+
+        ButtonGroup buttonGroup1 = new ButtonGroup();
+        buttonGroup1.add(r3);
+        buttonGroup1.add(r4);
+        buttonGroup1.add(r5);
+
 
         JLabel labeladd = new JLabel("Address :");
         labeladd.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -163,36 +179,13 @@ public class Signup extends JFrame {
         textState.setBounds(300,640,400,30);
         add(textState);
 
-
-
-
-
-
-
-
-//        JLabel labelno = new JLabel("Phone No. :");
-//        labelno.setFont(new Font("Raleway", Font.BOLD, 20));
-//        labelno.setBounds(100,290,300,30);
-//        add(labelno);
-//
-//        textNo = new JTextField();
-//        textNo.setFont(new Font("Raleway", Font.BOLD,14));
-//        textNo.setBounds(300,290,400,30);
-//        add(textNo);
-//
-//        JLabel labelemail = new JLabel("Email Id :");
-//        labelemail.setFont(new Font("Raleway", Font.BOLD, 20));
-//        labelemail.setBounds(100,340,300,30);
-//        add(labelemail);
-//
-//        textEmail = new JTextField();
-//        textEmail.setFont(new Font("Raleway", Font.BOLD,14));
-//        textEmail.setBounds(300,340,400,30);
-//        add(textEmail);
-
-
-
-
+        next = new JButton("Next");
+        next.setFont(new Font("Raleway", Font.BOLD,14));
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.white);
+        next.setBounds(620,710,80,30);
+        next.addActionListener(this);
+        add(next);
 
 
         getContentPane().setBackground(new Color(222,255,228));
@@ -200,6 +193,11 @@ public class Signup extends JFrame {
         setSize(850,800);
         setLocation(360,40);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
     public static void main(String[] args) {
