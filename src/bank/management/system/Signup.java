@@ -197,6 +197,57 @@ public class Signup extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String formno = first;
+        String name = textName.getText();
+        String fname = textFname.getText();
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        String gender = null;
+        if(r1.isSelected())
+        {
+            gender = "Male";
+        }
+        else if(r2.isSelected())
+        {
+            gender = "Female";
+        }
+
+        String email = textEmail.getText();
+        String mariatalStatus = null;
+        if (r3.isSelected())
+        {
+            mariatalStatus = "Married";
+        }
+        else if(r4.isSelected())
+        {
+            mariatalStatus = "Unmarried";
+        } else if (r5.isSelected()) {
+            mariatalStatus = "Other";
+        }
+
+        String address = textadd.getText();
+        String city = textcity.getText();
+        String pincode = textPC.getText();
+        String state = textState.getText();
+
+        try
+        {
+            if(textName.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            }
+            else {
+                Con con1 = new Con();
+                String q = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+mariatalStatus+"','"+address+"','"+city+"','"+pincode+"','"+state+"')";
+                con1.statement.executeUpdate(q);
+                new Signup2(first);
+                setVisible(false);
+            }
+
+
+        }catch (Exception E)
+        {
+            E.printStackTrace();
+        }
 
     }
 
