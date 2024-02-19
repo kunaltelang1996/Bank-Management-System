@@ -161,7 +161,7 @@ public class Signup3 extends JFrame implements ActionListener {
         l12.setBounds(600,10,100,30);
         add(l12);
 
-        JLabel l13 = new JLabel();
+        JLabel l13 = new JLabel(formno);
         l13.setFont(new Font("Raleway", Font.BOLD, 14));
         l13.setBounds(720,10,60,30);
         add(l13);
@@ -250,7 +250,9 @@ public class Signup3 extends JFrame implements ActionListener {
                     c1.statement.executeUpdate(q1);
                     c1.statement.executeUpdate(q2);
                     JOptionPane.showMessageDialog(null,"Card Number :" + cardno + "\n Pin : " + pin );
+                    new Deposit(pin);
                     setVisible(false);
+
                 }
             } else if (e.getSource() == c) {
                 System.exit(0);
